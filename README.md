@@ -4,13 +4,22 @@
 
 1. Make sure [Docker](https://www.docker.com/) is installed and running
 2. Make sure [sqlx cli](https://crates.io/crates/sqlx-cli) is installed
-3. Create a `.env` file. This file will store environment variables. Specifically, `DATABASE_URL` and `POSTGRES_PASSWORD`. It should look like this:
-    ```
-    DATABASE_URL=postgres://postgres:postgrespw@localhost:5432
-    POSTGRES_PASSWORD=postgrespw
+3. settup postgresql locally with docker: ``docker run -p 5432:5432 --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres````
+4. Create a `.env` file. This file will store environment variables. Specifically, `DATABASE_URL` and `POSTGRES_PASSWORD`. It should look like this:
+    ```s
+    DATABASE_URL=postgres://postgres:mysecretpassword@localhost:5432/postgres
     ```
     `NOTE:` When deploying the API, make sure to change the default PostgreSQL password.
-4. Update `docker-compose.yml` and change `letsgetrusty` to your own Docker Hub username. 
+5. Test the api locally: Add a user:
+    
+   Create a post request to (in postman or an equivalent tool): localhost:3000/user, 
+   
+   body: 
+   ```javascript
+   { "name": "Daniel Ahmed",
+     "email": "daniel.ahmed@gmail.com" }
+   ```
+6. Update `docker-compose.yml` and change `letsgetrusty` to your own Docker Hub username. 
 
 ## Run Locally
 1. Run an instance of PostgreSQL. This can be done via Docker:
