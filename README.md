@@ -10,7 +10,12 @@
     DATABASE_URL=postgres://postgres:mysecretpassword@localhost:5432/postgres
     ```
     `NOTE:` When deploying the API, make sure to change the default PostgreSQL password.
-5. Test the api locally: Add a user:
+5. To Test the api locally with Cargo: 
+
+   ```shell
+   $ cargo run
+   ```
+   Add a user:
     
    Create a post request to (in postman or an equivalent tool): localhost:3000/user, 
    
@@ -19,9 +24,9 @@
    { "name": "Daniel Ahmed",
      "email": "daniel.ahmed@gmail.com" }
    ```
-6. Update `docker-compose.yml` and change `letsgetrusty` to your own Docker Hub username. 
+6. Update `docker-compose.yml` and change `nuaip` to your own Docker Hub username. 
 
-## Run Locally
+## Run Locally with Docker
 1. Run an instance of PostgreSQL. This can be done via Docker:
     ```bash
     docker pull postgres
